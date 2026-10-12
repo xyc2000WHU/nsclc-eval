@@ -1,0 +1,89 @@
+# Historical experiment configuration; model availability and prices are not current guarantees.
+models:
+- display: DeepSeek
+  name: deepseek-flash
+  base_url: https://api.deepseek.com/v1
+  api_key_env: DEEPSEEK_API_KEY
+  price_in: 1.0
+  price_out: 2.0
+- display: 通义千问
+  name: qwen3.8-max
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  api_key_env: DASHSCOPE_API_KEY
+  price_in: 12.0
+  price_out: 36.0
+- display: Kimi(经阿里百炼)
+  name: kimi-k3
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  api_key_env: DASHSCOPE_API_KEY
+  price_in: 2.0
+  price_out: 8.0
+- display: 豆包
+  name: doubao-seed-2-1-lite-260915
+  base_url: https://ark.cn-beijing.volces.com/api/v3
+  api_key_env: ARK_API_KEY
+  price_in: 1.5
+  price_out: 4.0
+- display: 文心一言
+  name: ernie-4.5-turbo-128k
+  base_url: https://qianfan.baidubce.com/v2
+  api_key_env: QIANFAN_API_KEY
+  price_in: 0.8
+  price_out: 3.2
+- display: MiniMax
+  name: MiniMax-Text-01
+  base_url: https://api.minimax.chat/v1
+  api_key_env: MINIMAX_API_KEY
+  price_in: 2.1
+  price_out: 8.4
+- display: 硅基流动-开源模型
+  name: Qwen/Qwen3-8B
+  base_url: https://api.siliconflow.cn/v1
+  api_key_env: SILICONFLOW_API_KEY
+  price_in: 0.4
+  price_out: 3.2
+- display: 智谱GLM(经火山方舟)
+  name: glm-5-3-flash-260828
+  base_url: https://ark.cn-beijing.volces.com/api/v3
+  api_key_env: ARK_API_KEY
+  price_in: 0.8
+  price_out: 0.8
+judge:
+  display: 裁判模型
+  name: deepseek-v4-pro
+  base_url: https://api.deepseek.com/v1
+  api_key_env: DEEPSEEK_API_KEY
+  price_in: 1.0
+  price_out: 2.0
+embedding_hub: BAAI/bge-m3
+embedding_local: models/bge-m3
+ragas_metrics:
+- Faithfulness
+- AnswerCorrectness
+- ContextRecall
+ragas_batch_size: 6
+top_k: 6
+chunk_size: 700
+min_chunk_chars: 80
+answer_temperature: 0.2
+include_options_in_prompt: true
+answer_max_tokens: 2000
+chunk_filter:
+  drop_reference_sections: false
+  reference_score_threshold: 10
+  reference_score_threshold_in_section: 7
+  ref_penalty: 0.01
+  audit_samples: 5
+paths:
+  pdfs: pdfs
+  chunks: kb/chunks.jsonl
+  emb: kb/emb.npy
+  doc_index: kb/doc_index.json
+  candidates: qa/candidates.jsonl
+  review_csv: qa/审核表.csv
+  qa_set: qa/qa_set.jsonl
+  mcq_dir: qa/mcq
+  runs: runs
+  outputs: outputs
+mcq_subset: nsclc
+question_prefix: NSCLC

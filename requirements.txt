@@ -1,0 +1,8 @@
+pypdf
+pymupdf
+pyyaml
+openai
+python-dotenv
+numpy
+pandas
+sentence-transformers

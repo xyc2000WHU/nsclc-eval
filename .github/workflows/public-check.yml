@@ -1,0 +1,19 @@
+name: Public snapshot checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  offline:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify public data and file hashes
+        run: python scripts/verify_public_release.py
+      - name: Run synthetic workflow regression
+        run: python _selftest/regression_test.py --public

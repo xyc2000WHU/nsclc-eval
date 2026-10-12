@@ -1,0 +1,65 @@
+# 绝不能提交的东西
+.env
+.venv/
+pdfs/
+models/
+kb/
+runs/
+outputs/
+__pycache__/
+*.pyc
+~$*
+.pipcache/
+.tmp/
+.hfcache/
+.idea/
+torchinductor_*/
+_selftest/sandbox/
+# 开发模式产物（题目未经医学复核），不得作为正式结果
+dev/
+
+# === 2026-10-10 推送前修补：正式成果要入库 ===
+# === 2026-10-11 修补 2：**注释必须独占一行**，不得写在规则后面 ===
+#
+# [!] 为什么注释不能挂在规则行尾：gitignore 的「注释」只在**行首**的 `#` 才成立。
+#     写成 `outputs/* #说明` 时，Git 把 `outputs/* #说明`（含空格与说明文字）整体当成模式，
+#     于是它实际匹配不到任何文件 —— 而第 8 行 `outputs/` 仍然排除整个目录，
+#     结果下面所有 `!` 允许规则**静默失效**：报告与图表推不上去，git 也不报任何错。
+#     `dev/            # 说明` 同理失效（实测 dev/ 反而没被排除）。这一版把说明全部挪到独立注释行。
+#
+# [!] Git 的否定规则（!）还有一条硬性前提：**父目录必须先被解除排除**。
+#     上面第 8 行 `outputs/` 一旦排除整个目录，Git 根本不会再进入该目录去匹配
+#     内部文件的 `!outputs/*.md` 之类的规则 —— 那两条否定规则**形同不存在**。
+#     实测（临时仓库内执行 git check-ignore -v）：正式报告 .md 和图 1 的 .png
+#     仍然命中 `outputs/` 这一行，全部被忽略。
+#
+# [!] 因此这里**先**用 `!outputs/` 明确解除父目录排除，
+#     再逐层指定允许发布的内容。
+#     **不要删除 `!outputs/` 这一行**，也不要把它挪到 `outputs/` 之前——
+#     删掉或挪位后，下面的允许规则会再次静默失效，
+#     报告与图表将无法入库，而 git 不会给出任何报错提示。
+
+dev/
+outputs/*
+!outputs/
+!outputs/*.md
+!outputs/*.csv
+!outputs/图表/
+!outputs/图表/*.png
+
+# 核对方式（改动本文件后建议各跑一次，确认预期文件不再被忽略）：
+#   git check-ignore -v outputs\正式评测结果_2026-10-10.md   # 期望：无输出（退出码 1）
+#   git check-ignore -v outputs\图表\图1_模型对照.png        # 期望：无输出（退出码 1）
+#   git check-ignore -v .env                                 # 期望：命中 .env
+#   git check-ignore -v dev\example.json                     # 期望：命中 dev/
+# 回归测试内已按上面的期望写成**真实 git 调用**的断言（见 _selftest/regression_test.py 第 12 节）；
+# 无 git 的环境会打印原因并跳过该项，不静默通过。
+
+# Public release: generated/private material
+**/.env
+**/.env.*
+!.env.example
+**/*.pem
+**/*.key
+**/*.log
+release-check.json

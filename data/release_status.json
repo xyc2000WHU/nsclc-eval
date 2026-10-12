@@ -1,0 +1,57 @@
+{
+  "snapshot_date": "2026-10-12",
+  "status": "post-adjudication",
+  "supersedes": "pre-adjudication snapshot (same date)",
+  "questions": 90,
+  "answer_records": 900,
+  "open_judgements": 450,
+  "human_spot_checks": 90,
+  "adjudication_pending": 0,
+  "adjudication_done": 75,
+  "adjudication_p0": 18,
+  "human_annotation_coverage": {
+    "rows_with_a_human_correctness_record": 149,
+    "spot_checked_rows": 90,
+    "adjudicated_rows": 75,
+    "spot_checked_and_adjudicated": 16,
+    "presumed_baseline_rows": 375,
+    "presumed_baseline_spot_checked": 74,
+    "presumed_baseline_never_human_reviewed": 301,
+    "basis": "deduplicated by (model, question id): 90 spot-checked rows + 75 adjudicated rows - 16 in both = 149 of 450 rows with an independent human correctness record; of the 375 presumed rows, 74 were also spot-checked with a label equal to the two-judge label and 301 were never human reviewed. human_adjudicated: false means \"not part of the disagreement-adjudication workflow\", NOT \"never reviewed by a human\""
+  },
+  "adjudication_distribution": {
+    "一致": 56,
+    "部分一致": 10,
+    "不一致": 9
+  },
+  "adjudication_p0_distribution": {
+    "一致": 16,
+    "部分一致": 2,
+    "不一致": 0
+  },
+  "final_correctness_distribution": {
+    "一致": 334,
+    "部分一致": 19,
+    "不一致": 97,
+    "total": 450,
+    "basis": "375 rows are the presumed value where the two AI judges already agreed; only the 75 disagreement rows were adjudicated item by item by the project owner"
+  },
+  "cause_adjudication": {
+    "scope_rows": 18,
+    "scope": "the 18 rows that the 90-row human spot check marked 不一致 with error type 该答却拒答",
+    "records_in_file": 20,
+    "table_rows": 16,
+    "prefilled_rows": 4,
+    "out_of_scope_kept_in": "data/cause_confirmation_out_of_scope.jsonl",
+    "retrieval_or_context_side": 18,
+    "model_side": 0,
+    "breakdown": {
+      "检索没给到": 4,
+      "库内存在但未进上下文": 14
+    },
+    "derivation": "16 rows in qa/成因待确认.csv are all 库内存在但未进上下文; 4 further rows were filled directly by the reviewer as 检索没给到 in the spot-check tables; 14 + 4 = 18 refused-answer rows. The 16-row table also contains 2 rows outside that scope (回答不完整 / 数值错误), which are published separately instead of being dropped.",
+    "note": "The adjudicated object is the chunk registered when the question was written, not proof that the fragment the model received contained no equivalent evidence; splitting \"retrieval did not supply it\" from \"the model did not read it\" still needs a controlled experiment (not done)"
+  },
+  "knowledge_base_fp": "246137c682f0",
+  "release_scope": "metadata and labels; evidence text and raw responses omitted"
+}

@@ -1,0 +1,12 @@
+{
+  "experiment": "B",
+  "source": "project historical EvalScope report; aggregate only, not independently regraded in this public snapshot",
+  "n_per_model": 30,
+  "correct": {
+    "DeepSeek": 28,
+    "通义千问": 28,
+    "Kimi(经阿里百炼)": 28,
+    "豆包": 28,
+    "智谱GLM(经火山方舟)": 27
+  }
+}

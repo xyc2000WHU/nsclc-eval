@@ -1,0 +1,102 @@
+[
+  {
+    "doc_id": "D01",
+    "file": "01_ESMO_2025.pdf",
+    "chars": 104456,
+    "chunks": 114,
+    "junk_dropped": 40,
+    "ref_section_chunks": 0,
+    "pages_total": 19,
+    "pages_used": 19
+  },
+  {
+    "doc_id": "D02",
+    "file": "02_NCCN_NSCLC_v4.2025.pdf",
+    "chars": 325722,
+    "chunks": 433,
+    "junk_dropped": 53,
+    "ref_section_chunks": 14,
+    "pages_total": 286,
+    "pages_used": 120
+  },
+  {
+    "doc_id": "D03",
+    "file": "03_MARIPOSA_2024.pdf",
+    "chars": 54467,
+    "chunks": 70,
+    "junk_dropped": 12,
+    "ref_section_chunks": 1,
+    "pages_total": 13,
+    "pages_used": 13
+  },
+  {
+    "doc_id": "D04",
+    "file": "04_ALINA_2024.pdf",
+    "chars": 45985,
+    "chunks": 56,
+    "junk_dropped": 12,
+    "ref_section_chunks": 1,
+    "pages_total": 12,
+    "pages_used": 12
+  },
+  {
+    "doc_id": "D05",
+    "file": "05_LUSTRE_2024.pdf",
+    "chars": 27250,
+    "chunks": 33,
+    "junk_dropped": 7,
+    "ref_section_chunks": 0,
+    "pages_total": 5,
+    "pages_used": 5
+  },
+  {
+    "doc_id": "D06",
+    "file": "06_Zhang_HypoRT_2024.pdf",
+    "chars": 45107,
+    "chunks": 52,
+    "junk_dropped": 14,
+    "ref_section_chunks": 1,
+    "pages_total": 10,
+    "pages_used": 10
+  },
+  {
+    "doc_id": "D07",
+    "file": "07_KEYNOTE671_2024_author_manuscript.pdf",
+    "chars": 75415,
+    "chunks": 105,
+    "junk_dropped": 9,
+    "ref_section_chunks": 18,
+    "pages_total": 28,
+    "pages_used": 28
+  },
+  {
+    "doc_id": "D08",
+    "file": "08_CheckMate77T_2024.pdf",
+    "chars": 55233,
+    "chunks": 74,
+    "junk_dropped": 7,
+    "ref_section_chunks": 1,
+    "pages_total": 14,
+    "pages_used": 14
+  },
+  {
+    "doc_id": "D09",
+    "file": "09_ESTRO_2025.pdf",
+    "chars": 110117,
+    "chunks": 114,
+    "junk_dropped": 49,
+    "ref_section_chunks": 0,
+    "pages_total": 17,
+    "pages_used": 17
+  },
+  {
+    "doc_id": "D10",
+    "file": "10_SystemicPulmonaryToxicity_2024.pdf",
+    "chars": 61809,
+    "chunks": 71,
+    "junk_dropped": 21,
+    "ref_section_chunks": 0,
+    "pages_total": 15,
+    "pages_used": 15
+  }
+]
