@@ -1,0 +1,3 @@
+# Preserve the exact published bytes used by data/manifest.json.
+# Do not convert historical LF/CRLF line endings during checkout or add.
+* -text
